@@ -48,7 +48,7 @@
          Go sai (vi du "sielnt") thi tool hieu thanh false - muc nhe nhat.
          Co y nhu vay: mot loi go khong duoc bien thanh tu dong cai dat len
          may moi nguoi dung ma khong hoi. -->
-    <mandatory>false</mandatory>
+    <mandatory>silent</mandatory>
 
     <!-- "Co gi moi" - moi y mot the <note>, hien thang trong hop thoai cua
          tool va tren trang index.html. Viet cho NGUOI CHOI doc. -->
