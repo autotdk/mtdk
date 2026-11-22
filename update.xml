@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  update.xml - manifest cap nhat cua mTDK (ban Mobile).
+
+  File nay o https://raw.githubusercontent.com/autotdk/mTDK/main/update.xml
+  (du phong: https://autotdk.github.io/mTDK/update.xml - Updater.cpp ghep
+  tu TDK_TEN nen ten repo PHAI dung "mTDK").
+  Moi lan mTDK khoi dong, no tai file nay ve va so phien ban.
+
+  GIONG dinh dang file update.xml cua TDK14All, chi them the <note>.
+  Trang index.html tren GitHub Pages cung doc chinh file nay - sua o day la
+  ca tool lan trang web cung doi. The nao khong hieu thi cong cu bo qua.
+
+  MOI LAN PHAT HANH sua ba cho: <version>, <url>, va cac dong <note>.
+-->
+<item>
+
+    <!-- Phien ban. PHAI lon hon phien ban dang chay thi tool moi hoi nguoi
+         dung. So sanh theo tung bac, khong phai so chuoi: 1.0.10 > 1.0.9.
+
+         Phai TRUNG voi so ghi trong mTDK.exe (src/products/mtdk/Version.h). Lech nhau thi nguoi
+         dung tai ban "moi" ve, mo len van thay so cu, va lan khoi dong sau lai
+         duoc hoi cap nhat tiep - vong lap vo tan trong nhu tool bi loi.
+         Kiem nhanh: chuot phai mTDK.exe > Properties > Details. -->
+    <version>1.0.0</version>
+
+    <!-- Link tai .exe.
+
+         De file trong GitHub Releases, KHONG commit thang vao repo. Repo phat
+         hanh cu (TDK14AllRelease) commit file .zip moi lan: sau 30 ban thi
+         .git da 26 MB va khong bao gio nho lai duoc - git giu het moi ban zip
+         da tung commit, ke ca sau khi xoa khoi cay thu muc. -->
+    <url>https://github.com/autotdk/mTDK/releases/download/download/mTDK.exe</url>
+
+    <!-- Muc ep buoc. Ba gia tri, tu nhe den nang:
+
+         false   Binh thuong. Hien hop thoai, co nut "Để sau".
+
+         true    BAT BUOC. Hien hop thoai nhung khong co "Để sau"; nguoi dung
+                 tu choi thi tool dong lai. Dung khi game vua va va bang dia
+                 chi cu da sai - chay tiep luc do rat de mat tai khoan.
+
+         silent  KHONG HOI CAU NAO. Mo tool len la no tu tai, tu thay, tu mo
+                 lai; chi hien mot thanh tien do (khong co nut Huy). Dung khi
+                 ban cu hong den muc khong nen de ai bam "Để sau", va khong
+                 muon lam phien bang mot hop thoai nua.
+
+         Go sai (vi du "sielnt") thi tool hieu thanh false - muc nhe nhat.
+         Co y nhu vay: mot loi go khong duoc bien thanh tu dong cai dat len
+         may moi nguoi dung ma khong hoi. -->
+    <mandatory>false</mandatory>
+
+    <!-- "Co gi moi" - moi y mot the <note>, hien thang trong hop thoai cua
+         tool va tren trang index.html. Viet cho NGUOI CHOI doc. -->
+    <note>Bản đầu tiên của mTDK cho server Mobile</note>
+    <note>Tự động tải giả lập từ máy chủ</note>
+    <note>Đăng nhập hàng loạt bằng tài khoản Mobile</note>
+    <note>Đổi giao diện game PC ⇄ Mobile bằng một nút</note>
+
+</item>

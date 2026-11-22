@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mTDK — Auto Tây Du Ký Mobile</title>
+<meta name="description" content="mTDK — công cụ hỗ trợ Tây Du Ký Mobile trên máy tính. Tự cài client, đăng nhập tài khoản Mobile, auto phó bản, thu thập, đồng bộ nhiều cửa sổ. Một file duy nhất, tự cập nhật.">
+<meta name="theme-color" content="#0a0d18">
+
+<!-- Dung DUNG icon cua mTDK.exe (products/mtdk/app.ico), nhung thang vao trang duoi dang
+     data: URI. Hai ly do: trang khong phai tai them file nao, va quan trong
+     hon - icon tren web voi icon tren thanh taskbar cua tool la MOT, nguoi
+     dung nhan ra ngay. Sua app.ico thi nho sinh lai chuoi nay. -->
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<!-- Chia se len Facebook/Zalo thi hien dung ten va mo ta thay vi link tran. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="mTDK — Auto Tây Du Ký Mobile">
+<meta property="og:description" content="Chơi server Mobile trên máy tính: tự cài client, đăng nhập hàng loạt, auto phó bản, đồng bộ nhiều cửa sổ. Một file duy nhất, tự cập nhật.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* ===========================================================================
+   mTDK - trang tai ve (ban Mobile). Cung bo khung voi trang iTDK
+   (src/release/index.html) - sua giao dien ben do thi chep sang day.
+   ---------------------------------------------------------------------------
+   MOT FILE DUY NHAT, KHONG PHU THUOC AI. Khong anh tu mien khac, khong thu
+   vien JS, khong icon font. Ca khong khi cua trang lam bang gradient va SVG
+   viet thang trong HTML. Ly do: trang nay la cho nguoi dung TAI TOOL - no
+   phai mo duoc ngay ca khi mang cham, khi mien khac chet, hoac khi nha mang
+   chan mot CDN nao do. Font Google la thu duy nhat o ngoai, va co font du
+   phong neu no khong ve.
+
+   MOI DU LIEU DEN TU update.xml. Trang khong giu san so phien ban, link tai
+   hay dong "co gi moi" nao. Phat hanh ban moi = sua mot file.
+   =========================================================================== */
+
+:root{
+    /* Mau lay tu chinh giao dien game: vang kim va xanh ngoc. */
+    --gold:#f2c74c;
+    --gold-deep:#c99a2e;
+    --cyan:#4fd8e8;
+
+    --ink:#080b14;          /* nen sau nhat */
+    --ink-2:#0d1220;        /* nen the */
+    --line:rgba(242,199,76,.16);
+    --line-soft:rgba(255,255,255,.08);
+
+    --text:#e8eaf0;
+    --muted:#9aa3b8;
+    --dim:#6b748c;
+
+    --radius:14px;
+    --wrap:1080px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    font-family:'Be Vietnam Pro','Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--ink);
+    color:var(--text);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+}
+/* Trang chi co mot che do toi - do la chu y, khong phai thieu sot. Khai bao
+   de thanh cuon va cac o nhap cua he thong cung mau toi theo. */
+:root{color-scheme:dark}
+
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+
+/* --- Hinh nen -------------------------------------------------------------
+   Lay dung anh nen cua trang chu game, giong trang cua ban C#. Ba lop:
+
+     .bg        anh nen, phu kin man hinh
+     .bg::before lop den phu len cho doc duoc chu
+     .bg::after  quang vang/xanh nhat, giu khong khi cua trang
+
+   .bg la mot the position:fixed, nen anh dung yen khi cuon ma KHONG can
+   background-attachment:fixed - thuoc tinh do giat va khong chay tren
+   Safari iOS.
+
+   Anh nay lay tu tantayduky.vn. Neu ngay nao ho doi duong dan hoac chan
+   hotlink thi anh khong ve, nhung trang van doc binh thuong: mau nen cua
+   body va lop phu ben duoi da du toi. Khong co anh thi trang hoi tram hon,
+   khong vo.
+
+   LOP PHU DAM (.90) chu khong phai .75 nhu ban C#: trang cua ho chi cao mot
+   man hinh va toan chu lon, con trang nay dai va co nhieu chu nho - de mo
+   thi doan chu nao roi vao vung sang cua anh se kho doc. */
+.bg{
+    position:fixed;inset:0;z-index:-1;overflow:hidden;
+    background:var(--ink) url('https://tantayduky.vn/assets/images/cover/main-bg-top-min.jpg')
+               center top / cover no-repeat;
+}
+.bg::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,
+        rgba(8,11,20,.86) 0%,
+        rgba(8,11,20,.92) 55%,
+        rgba(8,11,20,.95) 100%);
+}
+.bg::after{
+    content:'';position:absolute;inset:-20%;
+    background:
+        radial-gradient(40rem 34rem at 50% 4%,  rgba(242,199,76,.16), transparent 58%),
+        radial-gradient(40rem 38rem at 90% 8%,  rgba(79,216,232,.12), transparent 58%),
+        radial-gradient(54rem 34rem at 50% 104%,rgba(201,154,46,.10), transparent 62%);
+    animation:drift 26s ease-in-out infinite alternate;
+}
+@keyframes drift{
+    from{transform:translate3d(0,0,0) scale(1)}
+    to  {transform:translate3d(-2.5%,1.5%,0) scale(1.06)}
+}
+
+/* --- Thanh dieu huong ---------------------------------------------------- */
+header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(8,11,20,.72);
+    border-bottom:1px solid var(--line-soft);
+}
+.nav{display:flex;align-items:center;gap:14px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+.brand .mark{width:30px;height:30px;flex:none;border-radius:7px}
+.nav-links{margin-left:auto;display:flex;gap:26px;font-size:.92rem;color:var(--muted)}
+.nav-links a{transition:color .18s}
+.nav-links a:hover{color:var(--gold)}
+@media(max-width:720px){.nav-links{display:none}}
+
+/* --- Hero ---------------------------------------------------------------- */
+.hero{padding-top:76px;padding-bottom:64px;text-align:center}
+
+.pill{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 14px;border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(242,199,76,.07);
+    color:var(--gold);
+    font-size:.82rem;font-weight:600;letter-spacing:.3px;
+}
+.pill .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--cyan);
+    box-shadow:0 0 0 0 rgba(79,216,232,.6);
+    animation:ping 2.4s ease-out infinite;
+}
+@keyframes ping{
+    0%  {box-shadow:0 0 0 0 rgba(79,216,232,.55)}
+    70% {box-shadow:0 0 0 9px rgba(79,216,232,0)}
+    100%{box-shadow:0 0 0 0 rgba(79,216,232,0)}
+}
+
+.hero h1{
+    margin:22px 0 14px;
+    font-size:clamp(2.6rem,7vw,4.4rem);
+    font-weight:800;line-height:1.05;letter-spacing:-1px;
+    background:linear-gradient(135deg,#fff 10%,var(--gold) 55%,var(--gold-deep) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.hero .tagline{
+    font-size:clamp(1rem,2.4vw,1.2rem);
+    color:var(--muted);max-width:620px;margin:0 auto 34px;
+}
+.hero .tagline b{color:var(--text);font-weight:600}
+
+/* --- Nut tai ------------------------------------------------------------- */
+.cta{display:flex;flex-direction:column;align-items:center;gap:14px}
+
+.btn-download{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:16px 38px;border-radius:12px;
+    background:linear-gradient(135deg,var(--gold-deep),var(--gold));
+    color:#14100a;font-weight:800;font-size:1.06rem;letter-spacing:.2px;
+    box-shadow:0 10px 32px -10px rgba(242,199,76,.55);
+    transition:transform .18s cubic-bezier(.2,.8,.3,1),box-shadow .18s;
+}
+.btn-download:hover{transform:translateY(-2px);box-shadow:0 16px 42px -12px rgba(242,199,76,.7)}
+.btn-download:active{transform:translateY(0)}
+.btn-download svg{width:20px;height:20px}
+.btn-download.loading{
+    background:rgba(255,255,255,.07);color:var(--dim);
+    box-shadow:none;pointer-events:none;
+}
+
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;font-size:.85rem;color:var(--dim)}
+.meta span{display:inline-flex;align-items:center;gap:6px}
+.meta svg{width:14px;height:14px;opacity:.65}
+
+/* --- Bo cuc phan noi dung ------------------------------------------------ */
+section{padding:66px 0;border-top:1px solid var(--line-soft);scroll-margin-top:62px}
+.sec-head{margin-bottom:38px}
+.sec-head .eyebrow{
+    font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--cyan);margin-bottom:8px;
+}
+.sec-head h2{font-size:clamp(1.55rem,3.6vw,2.1rem);font-weight:800;letter-spacing:-.4px}
+.sec-head p{color:var(--muted);margin-top:8px;max-width:640px}
+
+/* --- The tinh nang ------------------------------------------------------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:16px}
+
+/* So the la so le (7 the tren 3 cot) thi the cuoi dung mot minh o hang duoi,
+   lech han sang trai va nhin nhu trang con thieu. Day no vao cot giua.
+   Chi ap dung tu 840px tro len - do la be ngang ma luoi con du cho 3 cot;
+   hep hon thi luoi tu rut xuong 2 cot va quy tac nay khong con dung. */
+@media(min-width:840px){
+    .grid .card:last-child:nth-child(3n+1){grid-column:2}
+}
+.card{
+    display:flex;flex-direction:column;
+    position:relative;padding:24px;border-radius:var(--radius);
+    background:linear-gradient(160deg,var(--ink-2),rgba(13,18,32,.4));
+    border:1px solid var(--line-soft);
+    transition:border-color .2s,transform .2s;
+}
+.card:hover{border-color:var(--line);transform:translateY(-3px)}
+.card .icon{
+    width:38px;height:38px;margin-bottom:14px;border-radius:9px;
+    display:grid;place-items:center;
+    background:rgba(242,199,76,.09);border:1px solid var(--line);
+}
+.card .icon svg{width:19px;height:19px;stroke:var(--gold)}
+.card h3{font-size:1.02rem;font-weight:600;margin-bottom:6px}
+.card p{font-size:.9rem;color:var(--muted)}
+.card ul{margin-top:auto;padding-top:12px;font-size:.85rem;color:var(--dim);list-style:none}
+.card li{padding-left:14px;position:relative;margin-top:3px}
+.card li::before{content:'';position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.55}
+
+/* --- Co gi moi ----------------------------------------------------------- */
+.notes{
+    padding:26px 28px;border-radius:var(--radius);
+    border:1px solid var(--line);
+    background:linear-gradient(160deg,rgba(242,199,76,.05),transparent 70%);
+}
+.notes ul{list-style:none}
+.notes li{
+    position:relative;padding-left:26px;margin-bottom:11px;color:var(--text);
+}
+.notes li:last-child{margin-bottom:0}
+.notes li::before{
+    content:'';position:absolute;left:4px;top:.55em;
+    width:8px;height:8px;border-radius:2px;
+    background:var(--gold);transform:rotate(45deg);
+}
+.notes .empty{color:var(--dim);font-size:.92rem;padding-left:0}
+.notes .empty::before{display:none}
+
+/* --- Cac buoc cai dat ---------------------------------------------------- */
+.steps{counter-reset:step;display:grid;gap:14px}
+.step{
+    counter-increment:step;
+    position:relative;padding:20px 22px 20px 66px;
+    border-radius:var(--radius);
+    background:var(--ink-2);border:1px solid var(--line-soft);
+}
+.step::before{
+    content:counter(step);
+    position:absolute;left:20px;top:19px;
+    width:30px;height:30px;border-radius:8px;
+    display:grid;place-items:center;
+    background:rgba(242,199,76,.1);border:1px solid var(--line);
+    color:var(--gold);font-weight:800;font-size:.9rem;
+}
+.step h3{font-size:1rem;font-weight:600;margin-bottom:4px}
+.step p{font-size:.91rem;color:var(--muted)}
+.step code{
+    font-family:ui-monospace,Consolas,monospace;font-size:.86em;
+    background:rgba(255,255,255,.06);padding:1px 6px;border-radius:5px;color:var(--text);
+}
+
+/* Khung luu y - hai dieu khien nguoi dung hoi nhieu nhat. */
+.note-warn{
+    margin-top:18px;padding:16px 18px;border-radius:12px;
+    border:1px solid rgba(79,216,232,.22);
+    background:rgba(79,216,232,.05);
+    font-size:.9rem;color:var(--muted);
+}
+.note-warn strong{color:var(--cyan);font-weight:600}
+
+/* --- Cau hoi thuong gap -------------------------------------------------- */
+details{
+    border:1px solid var(--line-soft);border-radius:12px;
+    background:var(--ink-2);margin-bottom:10px;overflow:hidden;
+}
+details[open]{border-color:var(--line)}
+summary{
+    padding:17px 22px;cursor:pointer;font-weight:600;font-size:.97rem;
+    list-style:none;display:flex;align-items:center;gap:12px;
+    transition:color .18s;
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--gold)}
+summary::before{
+    content:'';flex:none;width:8px;height:8px;
+    border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);
+    transform:rotate(-45deg);transition:transform .2s;
+}
+details[open] summary::before{transform:rotate(45deg)}
+details .body{padding:0 22px 20px 52px;color:var(--muted);font-size:.92rem}
+details .body p+p{margin-top:10px}
+
+/* --- Chan trang ---------------------------------------------------------- */
+footer{
+    padding-top:40px;padding-bottom:56px;border-top:1px solid var(--line-soft);
+    color:var(--dim);font-size:.85rem;
+    display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;
+}
+footer .sp{margin-left:auto}
+footer a:hover{color:var(--gold)}
+
+/* --- Hien dan khi mo trang ----------------------------------------------- */
+.rise{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.8,.3,1) forwards}
+.rise:nth-child(2){animation-delay:.05s}
+.rise:nth-child(3){animation-delay:.1s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* Ton trong nguoi tat hieu ung chuyen dong trong cai dat he thong. */
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+    .rise{opacity:1;transform:none}
+}
+
+@media(max-width:560px){
+    .hero{padding-top:52px;padding-bottom:44px}
+    section{padding:52px 0}
+    .btn-download{width:100%;justify-content:center;padding:16px 20px}
+}
+/* --- Rieng mTDK ----------------------------------------------------------
+   Nhan "Mobile" canh ten va vien xanh ngoc cho ba the tinh nang chi ban
+   Mobile moi co - nguoi da biet iTDK nhin la thay ngay cho khac. */
+.tag-mobile{
+    font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    padding:2px 8px;border-radius:999px;
+    color:var(--cyan);border:1px solid rgba(79,216,232,.35);background:rgba(79,216,232,.08);
+}
+.card.hl{border-color:rgba(79,216,232,.22);background:linear-gradient(160deg,rgba(79,216,232,.07),rgba(13,18,32,.4) 70%)}
+.card.hl:hover{border-color:rgba(79,216,232,.45)}
+.card.hl .icon{background:rgba(79,216,232,.09);border-color:rgba(79,216,232,.3)}
+.card.hl .icon svg{stroke:var(--cyan)}
+.card.hl li::before{background:var(--cyan)}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img class="mark" src="data:image/png;base64,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" alt="" width="30" height="30">
+      <span>mTDK</span>
+      <span class="tag-mobile">Mobile</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#tinh-nang">Tính năng</a>
+      <a href="#moi">Có gì mới</a>
+      <a href="#cai-dat">Cài đặt</a>
+      <a href="#hoi-dap">Hỏi đáp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<div class="wrap hero">
+  <div class="rise">
+    <span class="pill"><span class="dot"></span><span id="version-tag">Đang lấy phiên bản…</span></span>
+  </div>
+
+  <h1 class="rise">Auto Tây Du Ký Mobile</h1>
+
+  <p class="tagline rise">
+    Chơi server Mobile ngay trên máy tính: tool <b>tự cài client</b>, tự đăng nhập,
+    chạy phó bản và đồng bộ nhiều cửa sổ cùng lúc.
+    <b>Một file duy nhất</b> — không cần giả lập, không .NET, không DLL đi kèm.
+  </p>
+
+  <div class="cta rise">
+    <a class="btn-download loading" id="download-btn" href="#" aria-live="polite">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+      </svg>
+      <span id="download-label">Đang tải thông tin…</span>
+    </a>
+
+    <div class="meta">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/>
+        </svg>
+        Windows 7 trở lên
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>
+        </svg>
+        Không cần giả lập
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/>
+        </svg>
+        Tự cập nhật
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= TINH NANG ================= -->
+<section id="tinh-nang">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Tính năng</div>
+      <h2>Làm được những gì</h2>
+      <p>Cùng bộ máy auto với iTDK, thêm phần riêng cho server Mobile. Mỗi nhân vật một cửa sổ, tick chọn ai thì chạy người đó.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card hl">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div>
+        <h3>Tự tải giả lập</h3>
+        <p>Tool tự tải giả lập về máy tính.</p>
+        <ul>
+          <li>Kiểm từng file, sai là tải lại</li>
+          <li>Đứt mạng thì lần sau tải tiếp</li>
+        </ul>
+      </div>
+
+      <div class="card hl">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Đăng nhập tài khoản Mobile</h3>
+        <p>Nhập tài khoản, mật khẩu như bình thường. Tool tự lấy phiên đăng nhập mới mỗi lần vào game.</p>
+        <ul>
+          <li>Đăng nhập hàng loạt, tick chọn acc</li>
+          <li>Nhập/xuất danh sách ra file</li>
+          <li>Đóng tất cả game một nút</li>
+        </ul>
+      </div>
+
+      <div class="card hl">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="13" height="14" rx="2"/><rect x="17" y="7" width="5" height="10" rx="1.5"/></svg></div>
+        <h3>Đổi giao diện PC ⇄ Mobile</h3>
+        <p>Mặc định giao diện PC quen thuộc, muốn giao diện Mobile thì đổi một nút.</p>
+        <ul>
+          <li>Lần đầu tải thêm phần khác nhau</li>
+          <li>Đổi qua lại không phải tải lại</li>
+          <li>Khung mTDK Player gọn gàng</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Auto phó bản</h3>
+        <p>Đi hết lộ trình, đánh quái, mở rương, nhặt đồ rồi ra ngoài.</p>
+        <ul>
+          <li>Mở rương, nhặt đồ tự động</li>
+          <li>Đi theo tổ, đồng bộ cả đội</li>
+          <li>Kẹt đường thì tự gỡ</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <h3>Auto thu thập &amp; train</h3>
+        <p>Mỗi nhân vật đi một lộ trình toạ độ riêng.</p>
+        <ul>
+          <li>Ghi lộ trình bằng nút REC</li>
+          <li>Chết về thành tự quay lại chỗ train</li>
+          <li>Chạy/dừng riêng từng dòng</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/></svg></div>
+        <h3>Đồng bộ phím &amp; chuột</h3>
+        <p>Gõ ở một cửa sổ, các cửa sổ còn lại làm theo.</p>
+        <ul>
+          <li>Truyền cả phím lẫn chuột</li>
+          <li>Chọn cửa sổ nào nhận lệnh</li>
+          <li>Đi theo tổ trưởng</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Tiện ích trong game</h3>
+        <p>Bật là chạy ngay, không qua nút Bắt đầu.</p>
+        <ul>
+          <li>Nhìn tàng hình</li>
+          <li>Tấn công nhanh</li>
+          <li>Cường hóa nhanh · Chế đồ nhanh</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></div>
+        <h3>Xếp cửa sổ &amp; View OBS</h3>
+        <p>Nhiều cửa sổ game nhưng vẫn nhìn được hết.</p>
+        <ul>
+          <li>Tự xếp chồng gọn gàng</li>
+          <li>Xem nhiều nhân vật một lúc</li>
+          <li>Nháy đúp để đưa cửa sổ lên</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Key bản quyền &amp; gia hạn</h3>
+        <p>Kích hoạt ngay trong tool, gia hạn bằng chuyển khoản quét mã QR.</p>
+        <ul>
+          <li>Xem hạn dùng ngay trong tool</li>
+          <li>Gia hạn xong dùng tiếp ngay</li>
+          <li>Key mTDK riêng, không dùng chung iTDK</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CO GI MOI ================= -->
+<section id="moi">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Cập nhật</div>
+      <h2>Có gì mới</h2>
+    </div>
+    <div class="notes">
+      <ul id="note-list"><li class="empty">Đang tải danh sách thay đổi…</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAI DAT ================= -->
+<section id="cai-dat">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Bắt đầu</div>
+      <h2>Cài đặt trong bốn bước</h2>
+      <p>Không cần cài game hay giả lập từ trước — client Mobile do chính mTDK cài.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>Tải file về</h3>
+        <p>Bấm nút vàng ở đầu trang. Chỉ có một file <code>mTDK.exe</code>, không có bộ cài.</p>
+      </div>
+      <div class="step">
+        <h3>Đặt vào thư mục thường rồi mở lên</h3>
+        <p>Ví dụ <code>D:\mTDK</code> hoặc ngay trên Desktop. Đừng để trong <code>Program Files</code> — Windows không cho tool tự cập nhật ở đó.</p>
+      </div>
+      <div class="step">
+        <h3>Kích hoạt key</h3>
+        <p>Nhập key ở tab Key, hoặc mua/gia hạn bằng mã QR ngay trong tool. Có key còn hạn thì mới cài được client.</p>
+      </div>
+      <div class="step">
+        <h3>Cài client, thêm tài khoản, đăng nhập</h3>
+        <p>Sang tab Đăng nhập, bấm <code>Cài client Mobile</code> và chờ tải xong (lần đầu vài GB). Sau đó thêm tài khoản Mobile, tick chọn và bấm đăng nhập. Vào game rồi thì chọn việc và bấm Bắt đầu như bình thường.</p>
+      </div>
+    </div>
+
+    <div class="note-warn">
+      <strong>Nếu Windows Defender báo file nguy hiểm:</strong> tool đọc và ghi bộ nhớ của tiến trình game
+      để điều khiển nhân vật — đúng cái mà phần mềm diệt virus được dạy để chặn. Thêm ngoại lệ cho thư mục
+      chứa <code>mTDK.exe</code> rồi tải lại, hoặc chọn "Giữ lại" (Keep) trong hộp thoại cảnh báo
+      của trình duyệt.
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOI DAP ================= -->
+<section id="hoi-dap">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Hỏi đáp</div>
+      <h2>Câu hỏi hay gặp</h2>
+    </div>
+
+    <details>
+      <summary>mTDK khác iTDK thế nào?</summary>
+      <div class="body">
+        <p><b>iTDK</b> dành cho server PC. <b>mTDK</b> dành cho server Mobile: tự cài client Mobile lên máy tính và đăng nhập bằng tài khoản Mobile. Phần auto (phó bản, thu thập, đồng bộ…) dùng chung một bộ máy nên cập nhật song song.</p>
+        <p>Hai tool dùng key riêng: key iTDK không kích hoạt được mTDK và ngược lại. Có thể mở cả hai cùng lúc, mỗi tool chỉ điều khiển cửa sổ game của mình.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Có cần cài game hay giả lập Android trước không?</summary>
+      <div class="body">
+        <p>Không. mTDK tự tải client từ máy chủ chính thức của nhà phát hành và kiểm lại từng file. Nếu máy đã có game bản PC, những file giống nhau được lấy lại từ đó nên tải nhanh hơn.</p>
+        <p>Mạng chập chờn cũng không sao: lần sau bấm lại, tool chỉ tải tiếp phần còn thiếu.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Mật khẩu tài khoản game có bị gửi đi đâu không?</summary>
+      <div class="body"><p>Mật khẩu chỉ được gửi tới máy chủ đăng nhập chính thức của nhà phát hành, giống hệt khi bạn đăng nhập trên điện thoại. Máy chủ trả về mã đăng nhập để vào game; mỗi lần vào game tool xin mã mới, không dùng lại mã cũ.</p></div>
+    </details>
+
+    <details>
+      <summary>Key hết hạn thì client có còn không?</summary>
+      <div class="body"><p>Client Mobile đi kèm key. Khi key hết hạn, mTDK tự gỡ client để giải phóng ổ đĩa. Gia hạn xong, bấm <code>Cài client Mobile</code> là tool cài lại.</p></div>
+    </details>
+
+    <details>
+      <summary>Cập nhật bản mới thế nào?</summary>
+      <div class="body">
+        <p>Không phải làm gì cả. Mỗi lần mở lên, tool tự hỏi máy chủ xem có bản mới không; có thì hiện hộp thoại, bấm Cập nhật là nó tự tải, tự thay và mở lại.</p>
+        <p>Riêng những bản đánh dấu <b>bắt buộc</b> thì không có nút "Để sau" — thường là khi game vừa vá và bản cũ đã chạy sai, chạy tiếp lúc đó rất dễ mất tài khoản.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Chạy được bao nhiêu cửa sổ game cùng lúc?</summary>
+      <div class="body"><p>Không giới hạn từ phía tool — mỗi cửa sổ game là một dòng trong danh sách. Giới hạn thật nằm ở RAM và CPU máy bạn, vì mỗi cửa sổ game là một tiến trình riêng.</p></div>
+    </details>
+
+    <details>
+      <summary>Đặt trong Program Files có sao không?</summary>
+      <div class="body"><p>Tool vẫn chạy, nhưng đến lúc tự cập nhật thì Windows chặn việc ghi đè và tool sẽ báo lỗi. Đặt ở thư mục thường (Desktop, <code>D:\mTDK</code>…) thì mọi thứ trơn tru.</p></div>
+    </details>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <span>mTDK — công cụ hỗ trợ Tây Du Ký Mobile</span>
+  <span class="sp"></span>
+  <a href="https://github.com/autotdk/mTDK/releases" target="_blank" rel="noopener">Các bản đã phát hành</a>
+</footer>
+
+<script>
+/* ===========================================================================
+   Moi du lieu tren trang den tu update.xml - cung file ma mTDK.exe doc.
+   Trang khong giu san so phien ban, link tai hay dong "co gi moi" nao, nen
+   phat hanh ban moi chi phai sua MOT file.
+
+   Ban truoc cua trang nay (TDK14AllRelease) chi lay so <version>, con danh
+   sach thay doi thi go tay thang vao HTML - moi lan phat hanh phai sua hai
+   cho va rat de quen mot.
+   =========================================================================== */
+(function () {
+    "use strict";
+
+    var FALLBACK = "https://github.com/autotdk/mTDK/releases/latest";
+
+    function text(xml, tag) {
+        var node = xml.getElementsByTagName(tag)[0];
+        return node ? node.textContent.trim() : "";
+    }
+
+    function fail(message) {
+        document.getElementById("version-tag").textContent = message;
+        var button = document.getElementById("download-btn");
+        button.classList.remove("loading");
+        button.href = FALLBACK;
+        button.target = "_blank";
+        button.rel = "noopener";
+        document.getElementById("download-label").textContent = "Xem trang tải về";
+
+        var list = document.getElementById("note-list");
+        list.innerHTML = '<li class="empty">Không đọc được danh sách thay đổi. ' +
+                         'Xem trực tiếp ở trang phát hành trên GitHub.</li>';
+    }
+
+    // Duong dan tuong doi: trang nay va update.xml nam cung mot cho, nen doi
+    // ten tai khoan hay repo cung khong phai sua gi o day.
+    // ?t= de trinh duyet khong dung ban cache cu sau khi vua phat hanh.
+    fetch("update.xml?t=" + Date.now())
+        .then(function (response) {
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            return response.text();
+        })
+        .then(function (data) {
+            var xml = new DOMParser().parseFromString(data, "application/xml");
+            if (xml.getElementsByTagName("parsererror").length) {
+                throw new Error("update.xml hong");
+            }
+
+            var version = text(xml, "version");
+            var url     = text(xml, "url");
+
+            document.getElementById("version-tag").textContent =
+                version ? "Phiên bản " + version : "Bản mới nhất";
+
+            var button = document.getElementById("download-btn");
+            if (url) {
+                button.classList.remove("loading");
+                button.href = url;
+                button.target = "_blank";
+                button.rel = "noopener";
+                document.getElementById("download-label").textContent =
+                    version ? "Tải mTDK " + version : "Tải mTDK";
+            } else {
+                // Co manifest nhung chua co link - van phai co duong di tiep.
+                button.classList.remove("loading");
+                button.href = FALLBACK;
+                button.target = "_blank";
+                button.rel = "noopener";
+                document.getElementById("download-label").textContent = "Xem trang tải về";
+            }
+
+            var notes = xml.getElementsByTagName("note");
+            var list  = document.getElementById("note-list");
+            list.innerHTML = "";
+            if (notes.length === 0) {
+                list.innerHTML = '<li class="empty">Bản này không ghi chú thay đổi nào.</li>';
+            } else {
+                for (var i = 0; i < notes.length; i++) {
+                    var item = document.createElement("li");
+                    item.textContent = notes[i].textContent.trim();
+                    list.appendChild(item);
+                }
+            }
+        })
+        .catch(function (error) {
+            console.error("Không đọc được update.xml:", error);
+            fail("Không lấy được thông tin phiên bản");
+        });
+
+}());
+</script>
+
+</body>
+</html>
